@@ -3,7 +3,7 @@ import socket
 import os
 
 # Host to listen
-host = "127.0.0.1"
+host = "192.168.29.76"
 
 # Creating Raw Socket and bind it to public interface
 if os.name == "nt":
@@ -22,8 +22,8 @@ sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 if os.name == 'nt':
     sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 
-# Read in singple packet
-print(sniffer.recvfrom(65565))
+# Read in single packet
+print(sniffer.recvfrom(65535))
 
 # Turn of promiscuois mode when using windows
 if os.name == 'nt':
